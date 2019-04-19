@@ -1,0 +1,183 @@
+
+  <!-- 搜索栏 -->
+
+  <view class='search_container_box'>
+  <!-- 搜索输入框父盒子 -->
+    <view class='search_input_box_container'>
+        <view class='search_input_box' >
+          <icon class="search_icon" type='search' size='18'></icon>
+          <input class='search_input' placeholder='搜索' value="{{inputValue}}"  bindinput="bindInput"> </input>
+          <icon wx:if="{{inputValue.length>0}}" class='search_clear' type='clear' size='18'  bindtap="clearInput"></icon>
+        </view>
+
+         <view class="search_cancel" bindtap='cancelInput'>取消
+         </view>
+
+          <view class='search_show_box_container' bindtap='searchClick' hidden='{{inputShowed}}'>
+            <icon type='search' size='14'></icon>
+            <view class='search_label'>搜索</view>
+           </view>
+  
+    </view>
+
+   
+  </view>
+
+
+<!-- 轮播通知 -->
+<view class='notice'>
+<!--显示小图标 -->
+  <image class='notice_img' src='/images/notice.png'></image>
+<!-- 显示轮播内容 垂直显示 -->
+  <swiper class="notice_item"  autoplay="true" circular="true" vertical="true" interval="3000">
+<!-- swiper-item 添加导航功能 -->
+<navigator wx:for="{{noticeList}}" url="../detail/detail?value={{item.detail}}">
+ <swiper-item >
+      <view class="notice_itemr"> {{item.title}}</view>
+    </swiper-item>
+</navigator>
+  </swiper>
+</view>
+
+<!-- 商品选择列表 -->
+<scroll-view  scroll-x="true">
+
+      <view class="goods_box"  >
+        <view id='index' wx:for="{{goods}}" bindtap='clicktab' class="goods_box_item{{index == activeIndex ? ' active':''}}" >
+          <image class='goods_image' src='/images/calendar.png'></image>
+          <view class='goods_text'>{{item.name}}</view>
+
+        </view>
+
+      </view>
+
+    <view class="goods_box" >
+        <view class='goods_box_item' wx:for="{{goods}}">
+          <image class='goods_image' src='/images/calendar.png'></image>
+          <view class='goods_text'>{{item.name}}</view>
+        </view>
+
+      </view>
+
+
+</scroll-view>
+<!-- 轮播 -->
+<view class='banner_box'>
+  <swiper interval="3000" autoplay="true" bindchange='bannerChange'>
+    <block wx:for="{{banners}}">
+       <swiper-item>
+         <image  mode="aspectFill" src='{{item.src}}'></image>
+     </swiper-item>
+    </block>
+  </swiper>
+<!-- 小圆点 -->
+<view class='dots'>
+  <block wx:for="{{banners}}" wx:key="unique">
+    <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
+  </block>
+</view>
+</view>
+
+ <!-- 爆品推荐 -->
+
+ <view class='hot_recommend_box'>
+    <view class="hot_text">爆品推荐</view>
+ </view>
+
+ <!-- 爆品列表项 -->
+ <view class='recommend_goods_container'>
+    
+  <view class='recommend_goods_box' wx:for-items='{{recommends}}' bindtap='goodsDetailList'>
+    <view class='recommend_goods_image_box'>
+      <image class='recommend_goods_image' src='{{item.src}}'></image>
+    </view>
+
+    <view class='recommend_goods_title'>{{item.goods_title}}</view>
+     <view class='recommend_goods_price'>￥{{item.price}}</view>
+     <view class='recommend_goods_old_price'>￥{{item.old_price}}</view>
+  </view>
+ </view>
+
+ <!-- 礼品 -->
+ <view class='gift_box' bindtap='clickTap'>
+  <image src='/images/gift.png'></image>
+ </view>
+
+ <!-- 疯狂砍价 -->
+
+ <view class='kanjia_box'>
+    <view class='kanjia_title'>疯狂砍价</view>
+    <!-- 砍价对应的列表 -->
+    <view class='kanjia_content_box'>
+      <view class='kanjia_content_box_item' wx:for-items ="{{kanjiaDatas}}">
+
+        <view class='kanjia_box_img'>
+          <image class='kanjia_img' src='{{item.src}}'></image>
+        </view>
+
+        <view class='kanjia_box_item'>
+          <view class='kanjia_box_item_title'>{{item.title}}</view>
+          <view class='kanjia_box_item_desc'>{{item.desc}}</view>
+
+          <view class='kanjia_msg_box'>
+
+            <view class='kanjia_msg_pirce'>原价:{{item.price}}</view>
+          <view class='kanjia_msg_ori_price'>底价:{{item.ori_pirce}}</view>
+
+          <button size='mini' type="warn" class='kanjia_msg_btn' bindtap='goodsDetailKan'>砍价</button>
+          </view>
+        </view>
+      </view>
+    </view>
+ </view>
+
+ <!-- 全民拼团 -->
+
+<view class='space'></view>
+
+<view class='tuan_title'>全民拼团</view>
+<view class='tuan_box'>
+
+  <view class='tuan_item_box' wx:for-items="{{tuanDatas}}">
+    <!-- 图片显示 -->
+    <view class='tuan_image_box'>
+      <image class='tuan_image'src="{{item.src}}"></image>
+    </view>
+    <!-- 具体内容 -->
+    <view class='tuan_item_content'>
+      <view class='tuan_item_title'>{{item.title}}</view>
+      <view class='tuan_desc'>{{item.desc}}</view>
+     
+      <view class='tuan_price_box'>
+        <view class='tuan_pirce'>￥{{item.price}}</view>
+         <view class='tuan_ori_price'>￥{{item.ori_pirce}}</view>
+         <button size="mini" type="warn" class='tuan_btn' bindtap='goodsDetailTuan'>拼团</button>
+      </view>
+     
+    </view>
+
+  </view>
+
+</view>
+
+<!-- 商品列表 -->
+<view class='tuan_title'>商品列表</view>
+
+<view class='goods_list_box'>
+  <view class='goods_list_item' wx:for-items="{{goods_list}}" bindtap='goodsDetailList'>
+    <view class='goods_img_box'>
+      <image class='goods_img' src='{{item.src}}'></image>
+    </view>
+
+   <view class='goods_content'>
+        <view class='goods_title'>{{item.title}}</view>
+        <view class='goods_content_price'>
+            <view class='goods_pirce'>{{item.price}}</view>
+            <view class='goods_ori_price' wx:if="{{item.ori_pirce>=300}}">{{item.ori_pirce}}</view>
+       </view>
+    </view>
+  </view>
+
+</view>
+
+

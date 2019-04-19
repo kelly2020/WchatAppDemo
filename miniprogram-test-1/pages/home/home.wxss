@@ -1,0 +1,534 @@
+
+ /* rpx 是微信小程序解决自适应屏幕尺寸的尺寸单位。微信小程序规定屏幕的宽度为750rpx。
+
+无论是在iPhone6上面还是其他机型上面都是750rpx的屏幕宽度，拿iPhone6来讲，屏幕宽度为375px，把它分为750rpx后， 1rpx = 0.5px。 */ 
+
+
+/* 搜索 */
+.search_container_box{
+  height: 60rpx;
+  background-color:#efeff4;
+  border-top: 1rpx solid #d7d6dc;
+  border-bottom: 1rpx solid #d7d6dc;
+  padding: 14rpx 20rpx;
+}
+.search_input_box_container{
+  height: 60rpx;
+  display: flex;
+  z-index: 1;
+  position: relative;
+}
+.search_input_box{
+  width: 100%;
+  background-color: #fff;
+  border-radius: 10rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 10rpx;
+
+}
+.search_cancel{
+  height: 60rpx;
+  width: 90rpx;
+  line-height: 60rpx;
+  margin-left: 20rpx;
+  font-size: 18px;
+  color:#09bb07;
+}
+.search_input{
+  font-size: 14px;
+  width: 100%;
+  margin: 0 10rpx;
+}
+
+.search_show_box_container{
+  height: 60rpx;
+  width: 100%;
+  background: #fff;
+  border-radius: 10rpx;
+  position: absolute;
+  text-align: center;
+  z-index: 2;
+}
+.search_show_box_container icon{
+  vertical-align: baseline;
+}
+.search_label{
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 14px;
+  color: #999;
+  display: inline-block;
+  margin-left: 10rpx;
+}
+/* 通知 */
+.notice{
+  height: 60rpx;
+  border-bottom: 1px solid #efeff4;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  align-items: center;
+  
+}
+.notice_img{
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+
+}
+ .notice_item{
+  height: 60rpx;
+  width: 100%;
+  line-height: 60rpx;
+  margin: 0;
+  padding: 0;
+}
+.notice_itemr{
+  font-size: 24rpx;
+  color: red;
+  width: 100%;
+  height: 60px;
+  line-height: 30px;
+  /* 一行显示 */
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* 商品列表 */
+
+.goods_box{
+  height: 160rpx;
+  width: 880rpx;
+}
+
+.goods_box_item{
+  width: 142rpx;
+  height: 140rpx;
+  display: inline-block;
+  text-align: center;
+  translate: transform .5s;
+}
+/* item获取焦点 两种方式都可以设置 */
+.goods_box_item:hover{
+  border-bottom:1rpx solid red;
+  color: red;
+}
+/* item被点击的时候 */
+.goods_box_item.active{
+  border-bottom:1rpx solid red;
+  color: red;
+}
+
+.goods_image{
+  width: 52rpx;
+  height: 52rpx;
+  margin-top: 40rpx;
+}
+.goods_text{
+  font-size: 24rpx;
+
+}
+/* 轮播 */
+.banner_box{
+  height: 100px;
+  width: 100%;
+  position: relative;
+}
+swiper-item image{
+  height: 100px;
+  width: 100%;
+}
+.banner_box .dots{
+  width: 40px;
+  height: 10px;
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+  left: 50%; 
+  transform: translateX(-30px);
+  display: flex;
+  justify-content: space-around;
+}
+.banner_box .dots .dot{
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, .5);
+  translate:all .6s;
+}
+.banner_box .dots .dot.active{
+  width: 10px;
+  background-color: rgba(255, 255, 255, 1)
+}
+
+/* 爆品推荐 */
+.hot_recommend_box {
+  height: 30px;
+  width: 100%;
+  text-align: center;
+  line-height: 30px;
+  position: relative;
+}
+.hot_text{
+  font-size: 14px;
+  color: #999;
+}
+/* 使用伪劣选择器 给元素的前后加入 元素 这个元素就是横线 */
+.hot_recommend_box::before{
+      content: "";
+			/*宽度包括padding 和border */
+			width: 60px;
+			height: 1px;
+      background-color: #e5e5e5;
+			/*伪元素属于 元素 是行内元素 所以 设置宽高需要改成块级元素*/
+			display: block;
+			/*为了不让元素占空间*/
+			position: absolute;
+			top: 50%;
+			left: 50%;
+      transform: translateX(-96px);
+}
+.hot_recommend_box::after{
+  content: "";
+  display: block;
+  height: 1px;
+  width: 60px;
+   background-color: #e5e5e5;
+   position: absolute;
+   top: 50%;
+   right: 50%;
+   transform: translateX(96px);
+}
+/* 爆款列表 */
+.recommend_goods_container{
+  background-color: #F2f2f2;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  padding: 14px;
+  padding-bottom: 40rpx;
+
+}
+.recommend_goods_box{
+  width: 335rpx;
+  height: 360rpx;
+  background-color: white;
+  border-radius: 6px;
+}
+.recommend_goods_image_box{
+  width: 335rpx;
+  height: 240rpx;
+  overflow: hidden;
+  /* 为了让里面的图片显示圆角给图片外部盒子设置圆角属性 */
+  border-radius: 6px 6px 0 0;
+}
+.recommend_goods_image{
+  width: 335rpx;
+  height: 240rpx;
+}
+.recommend_goods_title{
+  font-size: 12px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  padding: 6px 12px;
+}
+.recommend_goods_price{
+  font-size: 12px;
+  color: red;
+  float: left;
+  margin-left: 12px;
+}
+.recommend_goods_old_price{
+  color: #999;
+  font-size: 12px;
+  float: right;
+  margin-right: 20px;
+  text-decoration: line-through;
+}
+/* 礼品 */
+.gift_box{
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  background-color: #fff;
+  position: fixed;
+  right: 20px;
+  bottom: 40px;
+  text-align: center;
+  z-index: 3;
+}
+.gift_box image{
+  width: 30px;
+  height: 30px;
+  margin-top: 5px;
+}
+
+/* 疯狂砍价 */
+.kanjia_box{
+  position: relative;
+}
+.kanjia_box::before{
+  top: 0;
+  border-top: 1px solid #e5e5e5;
+}
+.kanjia_box::before,
+.kanjia_box::after{
+  content: "";
+  width: 100%;
+  /* 转化为行内块可以修改宽高 */
+  position: absolute;
+  left: 0;
+  right: 0;
+  /* 下面这种方式也可以添加线条 */
+  /* height: 1px;
+  background: #e5e5e5; */
+}
+.kanjia_box::after{
+  bottom: 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+.kanjia_title{
+  font-size: 14px;
+  color: #999;
+  /* 三个值的顺序是 上左下  逆时针方向 四个值是 上 右 下 左 */
+  padding:14px 15px 10px;
+  position: relative;
+}
+/* .kanjia_title::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-bottom: 1px solid #e5e5e5;
+  margin-left: 15px;
+} */
+.kanjia_content_box{
+  padding-left: 15px;
+}
+.kanjia_content_box_item {
+  width: 100%;
+  position: relative;
+  padding: 15px  20px  20px 0;
+  /* 子元素是块级的时候不用添加浮动 使用下面属性可以在一行显示 */
+  display: flex;
+  /* 盒子里面的元素垂直居中 */
+  align-items: center;
+}
+.kanjia_content_box_item::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-top: 1px solid #e5e5e5;
+}
+.kanjia_box_img{
+  width: 60px;
+  height: 60px;
+  left: 0;
+}
+.kanjia_box_img image{
+   width: 60px;
+   height: 60px;
+}
+.kanjia_box_item{
+  /* 如果不指定宽度 使用下面属性 盒子占据父容器剩余部分内容 */
+  flex: 1;
+   margin-left: 15px;
+   padding-right: 20px;
+}
+.kanjia_box_item_title{
+  font-weight:400;
+  width: 200px;
+	font-size:17px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
+.kanjia_box_item_desc{
+  margin-top: 5px;
+  font-size: 14px;
+  color: #999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* //将对象作为弹性伸缩盒子模型显示。 */
+  display: -webkit-box; 
+  /* 从上到下垂直排列子元素 */
+  -webkit-box-orient: vertical;
+  /* ，需要组合上面两个属性，表示显示的行数。 */
+  -webkit-line-clamp:2; 
+  line-height: 20px;
+}
+
+.kanjia_msg_box{
+  margin-top: 10px;
+  /* 清除浮动 */
+  overflow: hidden;
+}
+.kanjia_msg_pirce{
+  font-size: 14px;
+  float: left;
+}
+.kanjia_msg_ori_price{
+  font-size: 14px;
+  float: left;
+  color: red;
+  margin-left: 10px;
+
+}
+.kanjia_msg_btn{
+  float: right;
+
+}
+.space{
+  height: 10px;
+  background-color: #F2f2f2;
+}
+.tuan_title{
+  background: #fff;
+  height: 50px;
+  color: #999;
+  font-size: 14px;
+  text-align: center;
+  line-height: 50px;
+  position: relative;
+}
+.tuan_title::before{
+  left: 50%;
+  transform: translateX(-110px);
+}
+.tuan_title::after{
+ right: 50%;
+  transform: translateX(110px);
+}
+.tuan_title::after,
+.tuan_title::before{
+  content: "";
+  position: absolute;
+  width: 70px;
+  top: 50%;
+  height: 1px;
+  background: #e5e5e5;
+}
+.tuan_box{
+  background-color: #F2f2f2; 
+  padding: 15px 10px 5px 10px;
+}
+.tuan_item_box{
+  background-color: #fff;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+.tuan_image_box{
+  width: 100%;
+  height: 100px;
+   border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  /* 图片外部盒子有圆角 会对图片进行裁剪 图片具有圆角效果 */
+  overflow: hidden;
+}
+.tuan_image{
+  width: 100%;
+  height: 100px;
+}
+.tuan_item_content{
+  margin-left: 5px;
+  margin-top: 10px;
+}
+.tuan_item_title{
+  font-size: 10px;
+  width: 90%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.tuan_desc{
+  font-size: 11px;
+  color: #999;
+  margin-top: 2px;
+}
+
+.tuan_price_box{
+  margin-top: 10px;
+  /* 清除浮动因为父亲盒子没有高度子元素都使用了浮动属性不占据空间 */
+  overflow: hidden;
+}
+
+.tuan_pirce{
+  color: red;
+  font-size: 14px;
+  float: left;
+}
+.tuan_ori_price{
+  color: #999;
+  font-size: 10px;
+  float: left;
+  margin-left: 4px;
+  vertical-align: baseline;
+  margin-top: 2px;
+  text-decoration: line-through;
+}
+.tuan_btn{
+  float: right;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+/* 商品列表 */
+.goods_list_box{
+  background-color: #F2f2f2;
+  padding: 20rpx;
+  /* 列表里面的内容采用伸缩布局 */
+  display: flex;
+  justify-content: space-between;
+  /* 盒子里面内容盒子放不下的时候 换行 */
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+.goods_list_item{
+  width: 335rpx;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.goods_img_box{
+  width: 100%;
+  height: 220rpx;
+  overflow: hidden;
+}
+.goods_img{
+  width: 100%;
+  height: 220rpx;
+}
+
+.goods_content{
+ padding: 20rpx;
+}
+
+.goods_content_price{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.goods_title{
+  width: 140px;
+  font-size: 12px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.goods_pirce{
+ font-size: 12px;
+  color: red;
+}
+.goods_ori_price{
+  font-size: 12px;
+  color: #999;
+  text-decoration: line-through;
+}

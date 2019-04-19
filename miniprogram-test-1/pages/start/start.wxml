@@ -1,0 +1,33 @@
+<view class='container'>
+    <view class='swiper-container'>
+      <!-- 切换图片 -->
+      <!-- <swiper class='swiper-box' bindchange='bannerChange' indicator-dots indicator-color="rgba(255, 255, 255, .5)" indicator-active-color="rgba(255, 255, 255, .9)" current="{{current}}" duration="2000">
+        <swiper-item wx:for="{{banners}}" wx:key="id">
+          <image src='{{item}}'></image>
+        </swiper-item>
+      </swiper> -->
+
+       <swiper class='swiper-box' bindchange='bannerChange' >
+        <swiper-item wx:for="{{banners}}" wx:key="id">
+          <image src='{{item}}'></image>
+        </swiper-item>
+      </swiper>
+
+    
+      <!-- 小圆点 -->
+      <view class='dots'>
+      <!-- class 中间的 类可以写多个用空格隔开 -->
+        <view  wx:for="{{banners}}"  wx:key="unique" class="dot{{index == currentNum ?' active':''}}"> </view>
+
+      </view>
+
+      <view class='dots' wx:if="{{currentNum == bannerLength}}">
+      <form report-submit='true' bindsubmit='gosubmit'>
+        <button type='primary' form-type='submit'>点击进入</button>
+      </form>
+      </view>
+    </view>
+
+
+
+</view>

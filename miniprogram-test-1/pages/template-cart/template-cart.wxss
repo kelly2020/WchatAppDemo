@@ -1,0 +1,128 @@
+
+.no-goods-box{
+  width: 100%;
+  padding-top: 100rpx;
+  font-size: 28rpx;
+  color: #999;
+  text-align: center;
+}
+.no-goods-box image {
+  width: 60rpx;
+  height: 60rpx;
+}
+.no-goods-box button{
+  color: #fff;
+  width: 180rpx;
+  margin-top: 20rpx;
+}
+
+.no-goods-title{
+  margin-top: 20rpx;
+}
+
+
+.list-top{
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10rpx 20rpx;
+
+}
+.label{
+  font-size: 28rpx;
+  color: #000;
+}
+.edit{
+  font-size: 28rpx;
+  color: #999;
+}
+.goods_item_box{
+  height: 300rpx;
+  padding: 20rpx 0 32rpx 20rpx;
+  background-color: #fff;
+  margin-bottom: 10rpx;
+
+}
+.goods_item{
+  height: 200rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #eee;
+  background:  url(https://cdn.it120.cc/images/weappshop/gou.png) no-repeat;
+  background-size: 40rpx;
+  background-position: left center;
+  display: flex;
+  justify-content: space-between;
+} 
+.goods_item.active{
+  background:  url(https://cdn.it120.cc/images/weappshop/gou-red.png) no-repeat;
+  background-size: 40rpx;
+  background-position: left center;
+}
+.goods_item_content{
+  display: flex;
+  position: relative;
+}
+.goods_item_content image{
+  margin-left: 70rpx;
+  margin-right: 40rpx;
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.goods_text{
+  height: 160rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.goods_text_detail{
+  width: 470rpx;
+  line-height: 30rpx;
+  font-size: 28rpx;
+  color: #000;
+   text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.goods_price{
+   line-height: 30rpx;
+  font-size: 28rpx;
+  color: red;
+}
+.goods_selete_num_box{
+  height: 48rpx;
+  line-height: 48rpx;
+  width: 160rpx;
+  position: absolute;
+  bottom: 20rpx;
+  right: 20rpx;
+  border: 1rpx solid rgb(212, 207, 207);
+  display: flex;
+  text-align: center;
+}
+.goods_jian,
+.goods_plus,
+.goods_input{
+  font-size: 24rpx;
+  color: #000;
+  flex: 1;
+}
+.goods_input{
+  height: 48rpx;
+}
+.goods_jian{
+  border-right: 1rpx solid rgb(212, 207, 207);
+}
+.goods_plus{
+   border-left: 1rpx solid rgb(212, 207, 207);
+}
+.delete-btn{
+  width: 120rpx;
+  height: 180rpx;
+  background:#e64340;
+  line-height: 180rpx;
+  text-align: center;
+  color: white;
+
+}

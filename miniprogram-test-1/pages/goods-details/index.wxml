@@ -1,0 +1,181 @@
+
+<!-- 顶部容器 -->
+<view class='top-container'>
+<!--顶部是轮播图片 -->
+  <swiper wx:if="{{pageid == 1 ||pageid == 3 }}" class='swiper_block' interval='5000'  autoplay='true' duration='3000' bindchange='bindchange'>
+      <swiper-item wx:for-items="{{goods.pics}}">
+        <image src='{{item.src}}'></image>
+      </swiper-item>
+  </swiper>
+<!-- 小圆点 -->
+  <view class='swiper_dots'>
+    <block wx:for="{{goods.pics}}" wx:key="*this">
+      <view class="swiper_dot{{ index == current ? ' active':' ' }}"></view>
+      </block>
+  </view>
+
+  <!-- 顶部是视频播放 -->
+<view wx:if="{{pageid == 2 }}"  class="video-container" >
+    <video src="{{videoSrc}}" controls="true" loop="true" >
+    </video>
+</view>
+
+</view>
+
+<!-- <view class='space'></view> -->
+<!-- 第二部分 -->
+<view class='goods_info'>
+  <view class='goods-title'>{{goods.title}}</view>
+  <view class='goods-share' wx:if="{{goods.share_obj.share_state == 1}}">分享有赏，好友下单后可得{{goods.share_obj.share_jifen}} 积分奖励</view>
+  <view class='goods-share' wx:if="{{goods.share_obj.share_state == 2}}">分享有赏，好友下单后可得 {{goods.share_obj.share_xianjin}} 现金奖励</view>
+  <view class='goods-price current-price'>￥{{goods.pirce}}</view>
+  <view class='goods-price buy-count'>购买 {{goods.buy}}次</view>
+  <view class='goods-price buy-comment'>共收到{{goods.comment}}次好评 </view>
+  <view class='goods-share-fx'>
+      <image src='../../images/qd.png'></image>
+      <!-- 点击按钮调用分享事件 按钮设置背景透明 -->
+       <button open-type="share">分享</button>
+      <view class='goods-share-fx-title'>分享有赏</view>
+  </view>
+</view>
+
+<!-- 商品砍价 -->
+<view  wx:if="{{kanjia_state == 1}}" class='goods_kanjia_box'>
+
+<view class='goods_kanjia'>
+  商品砍价设置
+</view>
+<view class='goods_cells_box'>
+  <view class='goods_cell'>
+    <view class='weui-cell_bd'>限量</view>
+    <view class='weui-cell_ft'>87220份</view>
+  </view>
+
+  <view class='goods_cell'>
+    <view class='weui-cell_bd'>已售</view>
+    <view class='weui-cell_ft'>30份</view>
+  </view>
+
+   <view class='goods_cell'>
+    <view class='weui-cell_bd'>原价</view>
+    <view class='weui-cell_ft'>￥1000</view>
+  </view>
+
+
+   <view class='goods_cell'>
+    <view class='weui-cell_bd'>底价</view>
+    <view class='weui-cell_ft'>￥800</view>
+  </view>
+
+   <view class='goods_cell'>
+    <view class='weui-cell_bd'>截至</view>
+    <view class='weui-cell_ft'>2019-4-30  12:30:05</view>
+  </view>
+</view>
+
+</view>
+
+
+<!-- 拼团 -->
+<view wx:if="{{kanjia_state ==2}}" >
+<view class='goods_kanjia'>
+  商品拼团设置
+</view>
+<view class='goods_cells_box'>
+
+    <view class='goods_cell'>
+      <view class='weui-cell_bd'>已成团</view>
+      <view class='weui-cell_ft'>0</view>
+    </view> 
+
+    <view class='goods_cell'>
+      <view class='weui-cell_bd'>成团人数</view>
+      <view class='weui-cell_ft'>10</view>
+    </view>
+
+    <view class='goods_cell'>
+      <view class='weui-cell_bd'>退款条件</view>
+      <view class='weui-cell_ft'>8小时未成团</view>
+    </view>
+
+    <view class='goods_cell'>
+      <view class='weui-cell_bd'>截至</view>
+      <view class='weui-cell_ft'>2019-4-30  12:30:05</view>
+  </view>
+  </view>
+</view>
+
+
+
+<view class="joinbtn">
+<button  type='warn' >我也要报名参加</button>
+</view>
+
+<!-- 商品介绍 -->
+
+<view class='goods_doc'>商品介绍</view>
+<!-- 图片展示 -->
+<view class='goods_media'  wx:if="{{goods_type==1}}" wx:for-items="{{goods.pics}}">
+  <image src='{{item.src}}'></image>
+</view>
+<!-- 视频展示 -->
+<view class='goods_media'  wx:if="{{goods_type==2}}" wx:for-items="{{goods.media}}">
+  <video src='{{item.video}}' controls='true' loop='true'></video> 
+</view>
+
+<!-- 文本内容 -->
+<view class='goods_media'  wx:if="{{goods_type==3}}" wx:for-items="{{goods.contents}}">
+  <view class='goods_media_text' >{{item.detail}}</view> 
+</view>
+
+<!-- 底部购买部分 -->
+<view class='footer_box'>
+  <view class='contact_box'>
+    <view class='contact_icon'></view>
+    <view class="contact_text">客服</view>
+  </view>
+  <view class='shop_cart_box' bindtap='openShopCart'>
+    <image src='../../images/nav/cart-off.png'></image>
+    <view class='shop_cart_text'>购物车</view>
+    <view class='shop_cart_num'>(9)</view>
+  </view>
+  <view class='buy_now_box' bindtap='showPopup'>单独购买</view>
+  <view class='tuan_box' bindtap='showPopup'>发起拼团</view>
+
+</view>
+
+<!-- 加入购物车 -->
+<view class='join_shop_cart_box' hidden='{{isShowPopup}}'>
+  <view class='shop_popup_box'>
+    <view class='shop_popup_content'>
+
+      <view class='shop_popup_content_img'>
+        <image src='../../images/goods_1.png'></image>
+      </view>
+
+      <view class='shop_popup_desc'>
+        <view class='shop_popup_title'>5-7岁孩子袜子</view>
+        <view class='shop_popup_price'>￥89</view>
+      </view>
+
+      <view class='shop_popup_close' bindtap='closePopup'></view>
+    </view>
+
+
+    <view class='buy_num_box'>
+      <view class='buy_num_text'>
+        购买数量
+      </view>
+      <view class='buy_num_count'>
+        <view class="buy_num_jian{{buyNumber == buyNumMin ? ' hui': ''}}">-</view>
+        <input class='buy_input' value='0'></input>
+        <view class="buy_num_plus{{buyNumber == buyNumMax ? ' hui': ''}}">+</view>
+      </view>
+    </view>
+
+     <view class='join_cart' bindtap='joinCart'>
+  加入购物车
+  </view>
+
+  </view>
+</view>

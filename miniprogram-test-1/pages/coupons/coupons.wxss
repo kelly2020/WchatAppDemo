@@ -1,0 +1,124 @@
+
+.tab_title_box{
+  height: 80rpx;
+  width: 100%;
+  position: relative;
+  
+}
+.tab_title_item{
+  height: 80rpx;
+   width: 100%;
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1rpx solid #d7d6dc;
+ 
+}
+.tab_title_text{
+  flex: 1;
+  color: #000;
+  font-size: 32rpx;
+  line-height: 80rpx;
+  text-align: center;
+}
+.tab_title_text.active{
+  color:#1aad19;
+}
+.tab_slider{
+  height: 6rpx;
+  width: 230rpx;
+  background-color:#1aad19;
+  position: absolute;
+  bottom: 0;
+  left: 20rpx;
+  right: 0;
+ 
+}
+/* 页面主体 */
+.quan_box{
+  height: 100%;
+  padding-top: 20rpx;
+}
+.get_quan_box{
+  position: relative;
+  display: flex;
+  margin-bottom: 20rpx;
+}
+.quan_input{
+    height: 80rpx;
+  font-size: 32rpx;
+  flex: 1;
+}
+.get_quan_box::before,
+.get_quan_box::after{
+  position: absolute;
+  content: "";
+  left: 0;
+  right: 0;
+
+}
+.get_quan_box::before{
+  top: 0;
+  border-top: 1rpx solid #d7d6dc;
+}
+.get_quan_box::after{
+  bottom: 0;
+  border-bottom: 1rpx solid #d7d6dc;
+}
+.dui_quan_view{
+  line-height: 80rpx;
+  width: 160rpx;
+  border: 1rpx solid  #d7d6dc;
+  border-radius: 10rpx;
+  text-align: center;
+  font-size: 32rpx;
+}
+.quan_item_box{
+  width: 100%;
+  padding-left: 20rpx;
+  padding-bottom: 20rpx;
+  position: relative;
+}
+.new_shop_title{
+  font-size: 28rpx;
+  color: #999;
+  line-height: 80rpx;
+  border-bottom: 1rpx solid #d7d6dc;
+}
+.new_shop_price{
+  font-size: 28rpx;
+  color: red;
+  line-height: 60rpx;
+}
+.use_full_pirce{
+  font-size: 22rpx;
+  color:#999;
+  line-height: 60rpx;
+}
+.use_full_day{
+  line-height: 60rpx;
+  font-size: 22rpx;
+   color:rgb(207, 201, 201);
+}
+.quan_btn{
+  position: absolute;
+  right: 30rpx;
+  bottom: 30rpx;
+ 
+}
+.no_use_quan{
+  font-size: 28rpx;
+  color: #999;
+  line-height: 300rpx;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0 100rpx;
+}
+.quan_text{
+ margin: 0 20rpx;
+}
+.space{
+  height: 1rpx;
+  background:  #d7d6dc;
+  flex: 1;
+}

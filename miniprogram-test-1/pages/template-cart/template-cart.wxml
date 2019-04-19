@@ -1,0 +1,44 @@
+<template name="no-goods">
+  <view class='no-goods-box'>
+    <image src='../../images/nav/cart-off.png'></image>
+    <view class='no-goods-title'>购物车空空如也~</view>
+    <button type='warn' size='mini' bindtap='goIndex'>去逛逛</button>
+  
+  </view>
+</template>
+
+<template name="cart-goods-list">
+  <view class='list-top'>
+    <view class='label'>微商城</view>
+    <view class='edit'>编辑</view>
+  </view>
+
+  <view class='goods_item_box' wx:for="{{goods}}" wx:key='{{index}}'>
+  <!-- 当点击item的时候 如果active值为ture 则选中状态 如果false则是为选中状态 -->
+    <view data-index="{{index}}" class="goods_item{{item.active? ' active': ''}}" bindtap='selectTap' bindtouchmove='touchmove' style='{{item.left}}'
+    bindtouchstart="touchS" >
+
+      <view class='goods_item_content' animation="{{animationData}}" >
+      <!-- 图片部分 -->
+        <image src='../../images/goods_1.png'></image>
+        <!-- 文字内容部分 -->
+        <view class='goods_text'>
+          <view class='goods_text_detail'>{{item.title}}</view>
+          <view class='goods_price'>￥{{item.price}}</view>
+        </view>
+
+        <!-- 选择数量 -->
+        <view class='goods_selete_num_box'>
+            <view class='goods_jian'>-</view>
+           <input class="goods_input" type="number" value='0'/>
+           <view class='goods_plus'>+</view>
+        </view>
+
+      </view>
+      <view class="delete-btn" data-index="{{index}}" catchtap="delItem">
+           删除
+    </view>
+    </view>
+  </view>
+
+</template>

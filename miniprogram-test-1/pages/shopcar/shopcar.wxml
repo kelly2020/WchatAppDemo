@@ -1,0 +1,7 @@
+<import src="../template-cart/template-cart.wxml"/>
+<view>
+<!-- 通过data向template 中传入数据  在外部的 template-cart中就可以使用js中的数据了 -->
+  <template is="{{shopcarData.goods.length>0 ? 'cart-goods-list': 'no-goods'}}" data="{{...shopcarData}}">
+
+  </template>
+</view>

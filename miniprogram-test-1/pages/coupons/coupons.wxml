@@ -1,0 +1,58 @@
+<view class='tab_title_box'>
+    <view class='tab_title_item'>
+    <!-- id 设置值 可以通过bindtap中的event获取 -->
+      <view wx:for-items="{{tabs}}" class="tab_title_text{{activeIndex==index? ' active':''}}" id="{{index}}" bindtap='tabClick' wx:key="*this">
+        <view>{{item}}</view>
+      </view>
+
+     </view>
+
+<!-- 底部滑动线 -->
+  <view class='tab_slider' animation="{{animationData}}">
+  </view>
+</view>
+
+<!-- 可以领取 内容区域 -->
+<view  wx:if="{{datas_quan >0 }}" class='quan_box' hidden='{{activeIndex!=0}}'>
+    <view class='get_quan_box'>
+      <input class='quan_input' placeholder='请输入优惠码'></input>
+      <view class='dui_quan_view'>兑换优惠券</view>
+    </view>
+
+    <view class='get_quan_box'  wx:for-items="{{quans}}">
+      <view class='quan_item_box'>
+        <view class='new_shop_title'>新店优惠</view>
+        <view class='new_shop_price'>￥40</view>
+        <view class='use_full_pirce'>满3000元使用</view>
+        <view class='use_full_day'>领取15天内有效</view>
+
+        <button type='warn' size='mini' class='quan_btn'>立即领取</button>
+      </view>
+    
+    </view>
+</view>
+<!-- 空白提醒 -->
+<view  wx:if="{{datas_quan == 0}}" class="no_use_quan"  hidden='{{activeIndex!=0}}'>
+  <view class='space'></view>
+  <view class='quan_text'>暂无可用优惠券</view>
+  <view class='space'></view>
+</view>
+
+<!-- 已经领券 -->
+
+<!-- 空白提醒 -->
+<view  wx:if="{{datas == 0}}" class="no_use_quan"  hidden='{{activeIndex!=1}}'>
+<view class='space'></view>
+  <view class='quan_text'>暂无可用优惠券</view>
+  <view class='space'></view>
+</view>
+
+
+<!-- 已失效 -->
+
+<!-- 空白提醒 -->
+<view  wx:if="{{datas == 0}}" class="no_use_quan"  hidden='{{activeIndex!=2}}'>
+<view class='space'></view>
+  <view class='quan_text'>暂无数据</view>
+  <view class='space'></view>
+</view>
